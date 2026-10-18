@@ -1,0 +1,156 @@
+/**
+ * @author James McGuigan
+ * CS 5210
+ * Chapter 6 Individual Lab
+ * 04/26/2023
+ */
+
+ /* Lab Task List:
+  * Input an unknown number of employees 
+  * Determine and display the gross pay for each employ
+  * Company pays straight time for the first 40 hours worked by each employee 
+  * Hours x Rate
+  * Straight time plus time-and-a-half for all hours worked in excess of 40 hours
+  * Input the number of hours worked and hourly rate for each of the employees
+  * Determine and display the employee’s gross pay
+  * At the end, print the total gross pay for all employees
+  * Use the sentinel control Algorithm
+  */
+
+package IndLabCH06;
+
+import java.util.Scanner;
+import java.text.DecimalFormat;
+
+public class IndLabCH06 
+
+{
+
+	public static void main(String[] args) 
+	{
+		final int SENTINEL = -1;
+		int employees;
+		double hours ;
+		double rate = 0 ;
+		double grossPay;
+		
+		Scanner scan = new Scanner(System.in);
+		DecimalFormat percent = new DecimalFormat( "$0.00" );
+		
+
+		System.out.println( "This program determine and display the ross Pay for each employ" );
+		System.out.println( "Enter a -1 to stop." );
+	      
+			//EMPLOYEES
+			 
+		System.out.println( "Employees: " );
+	         employees = scan.nextInt();
+	         while ( employees <= 0 );
+		
+	    	//RATE OF PAY	
+	    	System.out.println( "Rate of pay: " );
+	    	rate = scan.nextDouble();
+	    	while ( rate <= 0 );
+
+	     
+			//HOURS WORKED
+		
+			System.out.println( "Hours Worked : ");
+		    hours = scan.nextDouble();		    
+		    while ( hours <= 0 )
+
+
+		    {
+			//GROSS PAY
+		    grossPay = rate * hours;	
+        
+		    while ( employees != SENTINEL )
+		    {
+		    	 if ( grossPay <= 40 )
+		         {
+		         System.out.println( percent.format( (double) ( grossPay ) ) );
+		         }
+		    	 else if ( grossPay > 40 )
+		            System.out.println(percent.format((double) ( grossPay ) / (rate* 0.5)));
+
+		         System.out.println( "The Gross Pay for Each Employee is "
+		                                + grossPay);
+
+		         
+		    
+		    }  
+		        		    
+		  }
+	}
+	
+}	    	
+		    	/* 	  
+	do
+    {
+
+       //prompt for user to enter hourly wage, verify wage entered is not a negative number, prompt to re-enter if it is
+       System.out.println();
+       System.out.print( "Enter hourly rate of pay: ");
+       hourlyRate = input.nextDouble();
+
+       while ( hourlyRate <= 0 );
+       {
+          System.out.print( "Re-enter hourly rate of pay: ");
+          hourlyRate = input.nextDouble();
+       }//end while
+
+       System.out.println();
+
+       //prompt for user to enter number of hours worked in a week, verify entry is not negative, prompt to re-enter if it  
+
+      //is
+       System.out.println();
+       System.out.print( "Enter total hours worked during the week: ");
+       weeklyHours = input.nextDouble();
+          while ( weeklyHours <= 0 )
+          {
+             System.out.print( "Re-enter total hours worked during the week: "); 
+             weeklyHours = input.nextDouble();
+          }//end while
+
+       System.out.println();
+
+       //calculate gross weekly pay 
+       weeklyPay = hourlyRate * weeklyHours;
+
+       //display individual's information on screen before proceeding to next employee
+       System.out.printf( "     %s\n     at $ %.2f an hour\n     for a %.2f-hour work week\n     earned $ %.2f in gross 
+
+weekly wages.", employeeName, hourlyRate, weeklyHours, weeklyPay );
+
+System.out.println();
+
+    } while (!employeeName.equals("stop"));//end do...while
+}   
+	/*    
+      
+      }
+   	
+    
+      
+      if ( countScores != 0 )
+      {
+         DecimalFormat percent = new DecimalFormat( "0.0%" );
+         System.out.println(
+            percent.format( (double) ( countPassed ) / countScores )
+            + " of the class passed the test" );
+    
+      
+
+      System.out.println( "You entered " + countScores + " scores" );
+      System.out.println( "The number of passing test scores is "
+                             + countPassed );
+      if ( countScores != 0 )
+      {
+         DecimalFormat percent = new DecimalFormat( "0.0%" );
+         System.out.println(
+            percent.format( (double) ( countPassed ) / countScores )
+            + " of the class passed the test" );
+      }
+	 */ 
+	

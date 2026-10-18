@@ -1,0 +1,73 @@
+/**
+ * @author James McGuigan
+ * CS 5210
+ * Chapter 6 Individual Lab
+ * 04/26/2023
+ */
+
+ /* Lab Task List:
+  * Input an unknown number of employees 
+  * Determine and display the gross pay for each employ
+  * Company pays straight time for the first 40 hours worked by each employee 
+  * Hours x Rate
+  * Straight time plus time-and-a-half for all hours worked in excess of 40 hours
+  * Input the number of hours worked and hourly rate for each of the employees
+  * Determine and display the employee’s gross pay
+  * At the end, print the total gross pay for all employees
+  * Use the sentinel control Algorithm
+  */
+
+package IndLabCH06;
+
+import java.util.Scanner;
+
+public class IndLabCH06 
+{
+	public static void main(String [] args) 
+	{
+	final int SENTINEL = -1;
+	int hours = 0;
+	double rate = 0;
+	double grossPay = 0;
+	double total = 0;
+
+	Scanner scan = new Scanner(System.in);
+
+	
+	System.out.println( "This program determines and displays the gross pay for unknown number of employees " );
+   
+	 	// 1) Priming Read
+    	System.out.print( "\nEnter hours worked, or -1 to stop > " );
+    	hours = scan.nextInt( );
+    	
+    	// 2) Test
+    	while ( hours != SENTINEL )		
+    		
+    		// 3) Body
+    		{
+    		System.out.print("Enter Rate of pay, or -1 to stop > "  );
+    	    rate = scan.nextDouble( );
+    	    
+    	    grossPay = hours * rate;	
+    	    
+    	    if (hours <= 40)
+    	    System.out.println( "The Gross Pay for Employee is $" + grossPay );
+    	    
+    	    if (hours > 40) 
+    		
+
+    		grossPay = ((rate * 1.5  ) * ( hours - 40 ))  + ( 40 * rate );
+    		
+    		System.out.println( "\nOvertime Time Notice: \nThe Gross Pay for Employee is $" + grossPay );		
+    		
+    	    total += grossPay;
+    	    
+    	    // 4) Repeat Read
+    	    System.out.print( "\nEnter Rate of pay, or -1 to stop > " );
+    	    hours = scan.nextInt( );
+    		}
+    	System.out.println( "\nThe Total Gross Pay For all employees is $" + total);
+		}
+  }
+
+
